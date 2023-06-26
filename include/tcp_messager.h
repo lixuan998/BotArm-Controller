@@ -23,7 +23,14 @@ class Tcp_Messager : public QObject
         
     //private functions
     private:
+        /**
+         * @brief use this function to connect signals and slots when act as a server
+        */
         void connectServerSignals();
+        /**
+         * @brief use this function to connect signals and slots when act as a client
+        */
+        void connectClientSignals();
     //public variables
     public:
 
@@ -39,8 +46,20 @@ class Tcp_Messager : public QObject
 		bool msg_ret_status;
     //public slots
     public slots:
+        /**
+         * @brief use this function to send message to the other device
+        */
 		void sendMessage(QString message);
+        
+        /**
+         * @brief when act as a server, use this slot to start listening the specific ip address and port
+        */
 		void startListening(QHostAddress address = QHostAddress::Any, int port = 8080);
+
+        /**
+         * @brief when act as a client, use this slot to connect to the server with specific ip address and port
+        */
+        void connectToHost(QHostAddress address = QHostAddress::Any, int port = 8080);
 		void stopListening();
     //private slots
     private slots:

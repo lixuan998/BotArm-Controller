@@ -2,22 +2,34 @@
 
 Tcp_Messager::Tcp_Messager()
 {
+	tcp_server = nullptr;
+	tcp_socket = nullptr;
+	msg_send_timer = nullptr;
 }
 
 Tcp_Messager::~Tcp_Messager()
 {
-	msg_send_timer->stop();
-	delete msg_send_timer;
-	msg_send_timer = nullptr;
-    if(tcp_server->isListening()) tcp_server->close();
+	if(msg_send_timer != nullptr)
+	{
+		msg_send_timer->stop();
+		delete msg_send_timer;
+		msg_send_timer = nullptr;
+	}
+	
+	if(tcp_server != nullptr)
+	{
+		if(tcp_server->isListening()) tcp_server->close();
+		delete tcp_server;
+		tcp_server = nullptr;
+	}
+    
     if(tcp_socket != nullptr)
     {
         if(tcp_socket->state() == QAbstractSocket::ConnectedState) tcp_socket->close();
         delete tcp_socket;
         tcp_socket = nullptr;
     }
-	delete tcp_server;
-	tcp_server = nullptr;
+	
 }
 
 void Tcp_Messager::startListening(QHostAddress address, int port)
@@ -64,6 +76,10 @@ void Tcp_Messager::startListening(QHostAddress address, int port)
 	}
 	}
 	
+void Tcp_Messager::connectToHost(QHostAddress address, int port)
+{
+	tcp_socket->connectToHost(address, port);
+}
 
 void Tcp_Messager::stopListening()
 {
@@ -114,7 +130,13 @@ void Tcp_Messager::sendMessage(QString message)
 void Tcp_Messager::connectServerSignals()
 {
     connect(tcp_server, &QTcpServer::newConnection, this, &Tcp_Messager::newConnection);
-    
+}
+
+void Tcp_Messager::connectClientSignals()
+{
+	connect(tcp_socket, &QAbstractSocket::readyRead, this, &Tcp_Messager::readData);
+	connect(tcp_socket, &QAbstractSocket::stateChanged, this, &Tcp_Messager::changeState);
+	connect(tcp_socket, &QAbstractSocket::destroyed, this, [&]{tcp_socket = nullptr;});
 }
 
 void Tcp_Messager::newConnection()
