@@ -11,6 +11,7 @@
 #include <QTimer>
 #include <QVector>
 #include <QMutex>
+#include <mutex>
 
 class Tcp_Messager : public QObject
 {
@@ -59,14 +60,36 @@ class Tcp_Messager : public QObject
         /**
          * @brief when act as a client, use this slot to connect to the server with specific ip address and port
         */
-        void connectToHost(QHostAddress address = QHostAddress::Any, int port = 8080);
+        void connectToHost(QHostAddress address = QHostAddress::LocalHost, int port = 8080);
+        
+        /**
+         * @brief initiate to disconnect from the server
+        */
+        void disconnectFromHost();
+
+        /**
+         * @brief initiate to stop listening
+        */
 		void stopListening();
     //private slots
     private slots:
+
+        /**
+         * @brief activate when a new connection comes
+        */
         void newConnection();
 
+        /**
+         * @brief activate when the socket status has changed
+        */
         void changeState(QAbstractSocket::SocketState state);
+
+        /**
+         * @brief activate when the socket has something to read 
+        */
         void readData();
+
+        void timeOut();
 
     //signals
     signals:

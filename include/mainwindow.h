@@ -19,6 +19,8 @@ public:
     ~MainWindow();
 
 private:
+
+    void initUI();
     /**
      * @brief Initializes the connections between various components
     */
@@ -32,6 +34,10 @@ private:
 
     void connectTcpMessagerSignals();
 
+    void turnRed();
+
+    void turnGreen();
+
 private:
     Ui::MainWindow *ui;
 
@@ -39,5 +45,16 @@ private:
 
 private slots:
     void connectToServer();
+
+    void serverConnected();
+
+    void serverDisconnected();
+
+    void on_connect_btn_clicked();
+
+signals:
+    void connectTcpServer(QHostAddress, int);
+    void disconnectTcpServer();
+    void sendMessage(QString);
 };
 #endif // MAINWINDOW_H

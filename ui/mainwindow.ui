@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1054</width>
-    <height>761</height>
+    <width>910</width>
+    <height>643</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,6 +28,9 @@
         <width>300</width>
         <height>16777215</height>
        </size>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
       </property>
       <widget class="QWidget" name="control_page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -51,7 +54,7 @@
            </font>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="manual_adjust">
            <attribute name="title">
@@ -60,6 +63,12 @@
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="9" column="0">
              <widget class="QLabel" name="axis4_label">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -81,6 +90,12 @@
             </item>
             <item row="5" column="4">
              <widget class="QSpinBox" name="axis3_spinbox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -99,6 +114,12 @@
             </item>
             <item row="4" column="3">
              <widget class="QSlider" name="axis2_slider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>14</pointsize>
@@ -117,6 +138,12 @@
             </item>
             <item row="5" column="3">
              <widget class="QSlider" name="axis3_slider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>14</pointsize>
@@ -133,23 +160,14 @@
               </property>
              </widget>
             </item>
-            <item row="9" column="3">
-             <widget class="QSlider" name="axis5_slider">
-              <property name="font">
-               <font>
-                <pointsize>14</pointsize>
-               </font>
-              </property>
-              <property name="maximum">
-               <number>120</number>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
             <item row="5" column="0">
              <widget class="QLabel" name="axis3_label">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -168,6 +186,12 @@
             </item>
             <item row="8" column="3">
              <widget class="QSlider" name="axis4_slider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>14</pointsize>
@@ -186,6 +210,12 @@
             </item>
             <item row="4" column="4">
              <widget class="QSpinBox" name="axis2_spinbox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -204,6 +234,12 @@
             </item>
             <item row="8" column="0" colspan="3">
              <widget class="QLabel" name="axis5_label">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -222,6 +258,12 @@
             </item>
             <item row="8" column="4">
              <widget class="QSpinBox" name="axis4_spinbox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -240,6 +282,12 @@
             </item>
             <item row="4" column="0">
              <widget class="QLabel" name="axis2_label">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -258,6 +306,12 @@
             </item>
             <item row="9" column="4">
              <widget class="QSpinBox" name="axis5_spinbox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -273,6 +327,12 @@
             </item>
             <item row="3" column="4">
              <widget class="QSpinBox" name="axis1_spinbox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -291,6 +351,12 @@
             </item>
             <item row="3" column="3">
              <widget class="QSlider" name="axis1_slider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>14</pointsize>
@@ -309,6 +375,12 @@
             </item>
             <item row="3" column="0">
              <widget class="QLabel" name="axis1_label">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -327,6 +399,12 @@
             </item>
             <item row="2" column="4">
              <widget class="QSpinBox" name="axis0_spinbox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -348,6 +426,12 @@
             </item>
             <item row="2" column="3">
              <widget class="QSlider" name="axis0_slider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>14</pointsize>
@@ -366,6 +450,12 @@
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="axis0_label">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -379,6 +469,27 @@
               </property>
               <property name="text">
                <string>Axis 0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="3">
+             <widget class="QSlider" name="axis5_slider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="maximum">
+               <number>120</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
              </widget>
             </item>
@@ -411,7 +522,40 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="ip_lineEdit">
+             <property name="text">
+              <string>127.0.0.1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="port_label">
+             <property name="text">
+              <string>Port:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="connect_btn">
+             <property name="minimumSize">
+              <size>
+               <width>10</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Connect</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
             <widget class="QLabel" name="connect_status_label">
              <property name="maximumSize">
               <size>
@@ -424,27 +568,10 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="port_label">
-             <property name="text">
-              <string>Port:</string>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="1">
             <widget class="QLineEdit" name="port_lineEdit">
              <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="ip_lineEdit"/>
-           </item>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="connect_btn">
-             <property name="text">
-              <string>Connect</string>
+              <string>8080</string>
              </property>
             </widget>
            </item>
@@ -475,8 +602,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1054</width>
-     <height>22</height>
+     <width>910</width>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
