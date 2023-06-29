@@ -33,7 +33,16 @@ void MainWindow::syncSpinBoxWithSlider()
     connect(ui->axis0_spinbox, QOverload<int>::of(&QSpinBox::valueChanged), ui->axis0_slider, &QSlider::setValue);
     connect(ui->axis0_slider, QOverload<int>::of(&QSlider::valueChanged), ui->axis0_spinbox, &QSpinBox::setValue);
     connect(ui->axis0_slider, QOverload<int>::of(&QSlider::valueChanged), this, [&](int value){
-        QString tmp_order = "[0," + QString::number(value) + "]";
+        QString _prefix;
+        if(value >= 0) _prefix = "+";
+        else
+        {
+            _prefix = "-";
+            value = -value;
+        }
+        if(abs(value) / 10 == 0) _prefix += "00";
+        else if(abs(value) / 100 == 0) _prefix += "0";
+        QString tmp_order = "0," + _prefix + QString::number(value);
         emit sendMessage(tmp_order);
     });
 
@@ -41,35 +50,80 @@ void MainWindow::syncSpinBoxWithSlider()
     connect(ui->axis1_spinbox, QOverload<int>::of(&QSpinBox::valueChanged), ui->axis1_slider, &QSlider::setValue);
     connect(ui->axis1_slider, QOverload<int>::of(&QSlider::valueChanged), ui->axis1_spinbox, &QSpinBox::setValue);
     connect(ui->axis1_slider, QOverload<int>::of(&QSlider::valueChanged), this, [&](int value){
-        QString tmp_order = "[1," + QString::number(value) + "]";
+        QString _prefix;
+        if(value >= 0) _prefix = "+";
+        else
+        {
+            _prefix = "-";
+            value = -value;
+        }
+        if(abs(value) / 10 == 0) _prefix += "00";
+        else if(abs(value) / 100 == 0) _prefix += "0";
+        QString tmp_order = "1," + _prefix + QString::number(value);
         emit sendMessage(tmp_order);
     });
 
     connect(ui->axis2_spinbox, QOverload<int>::of(&QSpinBox::valueChanged), ui->axis2_slider, &QSlider::setValue);
     connect(ui->axis2_slider, QOverload<int>::of(&QSlider::valueChanged), ui->axis2_spinbox, &QSpinBox::setValue);
     connect(ui->axis2_slider, QOverload<int>::of(&QSlider::valueChanged), this, [&](int value){
-        QString tmp_order = "[2," + QString::number(value) + "]";
+        QString _prefix;
+        if(value >= 0) _prefix = "+";
+        else
+        {
+            _prefix = "-";
+            value = -value;
+        }
+        if(abs(value) / 10 == 0) _prefix += "00";
+        else if(abs(value) / 100 == 0) _prefix += "0";
+        QString tmp_order = "2," + _prefix + QString::number(value);
         emit sendMessage(tmp_order);
     });
 
     connect(ui->axis3_spinbox, QOverload<int>::of(&QSpinBox::valueChanged), ui->axis3_slider, &QSlider::setValue);
     connect(ui->axis3_slider, QOverload<int>::of(&QSlider::valueChanged), ui->axis3_spinbox, &QSpinBox::setValue);
     connect(ui->axis3_slider, QOverload<int>::of(&QSlider::valueChanged), this, [&](int value){
-        QString tmp_order = "[3," + QString::number(value) + "]";
+        QString _prefix;
+        if(value >= 0) _prefix = "+";
+        else
+        {
+            _prefix = "-";
+            value = -value;
+        }
+        if(abs(value) / 10 == 0) _prefix += "00";
+        else if(abs(value) / 100 == 0) _prefix += "0";
+        QString tmp_order = "3," + _prefix + QString::number(value);
         emit sendMessage(tmp_order);
     });
 
     connect(ui->axis4_spinbox, QOverload<int>::of(&QSpinBox::valueChanged), ui->axis4_slider, &QSlider::setValue);
     connect(ui->axis4_slider, QOverload<int>::of(&QSlider::valueChanged), ui->axis4_spinbox, &QSpinBox::setValue);
     connect(ui->axis4_slider, QOverload<int>::of(&QSlider::valueChanged), this, [&](int value){
-        QString tmp_order = "[4," + QString::number(value) + "]";
+        QString _prefix;
+        if(value >= 0) _prefix = "+";
+        else
+        {
+            _prefix = "-";
+            value = -value;
+        }
+        if(abs(value) / 10 == 0) _prefix += "00";
+        else if(abs(value) / 100 == 0) _prefix += "0";
+        QString tmp_order = "4," + _prefix + QString::number(value);
         emit sendMessage(tmp_order);
     });
 
     connect(ui->axis5_spinbox, QOverload<int>::of(&QSpinBox::valueChanged), ui->axis5_slider, &QSlider::setValue);
     connect(ui->axis5_slider, QOverload<int>::of(&QSlider::valueChanged), ui->axis5_spinbox, &QSpinBox::setValue);
     connect(ui->axis5_slider, QOverload<int>::of(&QSlider::valueChanged), this, [&](int value){
-        QString tmp_order = "[5," + QString::number(value) + "]";
+        QString _prefix;
+        if(value >= 0) _prefix = "+";
+        else
+        {
+            _prefix = "-";
+            value = -value;
+        }
+        if(abs(value) / 10 == 0) _prefix += "00";
+        else if(abs(value) / 100 == 0) _prefix += "0";
+        QString tmp_order = "5," + _prefix + QString::number(value);
         emit sendMessage(tmp_order);
     });
 }
