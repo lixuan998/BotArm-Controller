@@ -187,7 +187,7 @@ void Tcp_Messager::changeState(QAbstractSocket::SocketState state)
 void Tcp_Messager::readData()
 {
     QByteArray temp = tcp_socket->readAll();
-    QString recived_message = QString::fromUtf8(temp);
+    QString recived_message = temp;
 	qDebug() << "rcvd: " << recived_message << " last: " << last_order;
     emit recivedMsg(recived_message);
 	status_mutex.lock();

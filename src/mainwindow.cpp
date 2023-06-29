@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+/**
+ * Public functions
+*/
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -9,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("BotArm Controller");
     initUI();
     initConnections();
+    initImgTrans();
 }
 
 MainWindow::~MainWindow()
@@ -16,6 +20,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/**
+ * Private functions
+*/
 void MainWindow::initUI()
 {
     turnRed();
@@ -26,6 +33,15 @@ void MainWindow::initConnections()
     syncSpinBoxWithSlider();
     connectActions();
     connectTcpMessagerSignals();
+}
+
+void MainWindow::initImgTrans()
+{
+    connect(&img_trans, &ImgTrans::sendMat, this, &MainWindow::showImage);
+    connect(this, &MainWindow::setImgTransPort, &img_trans, &ImgTrans::transImage);
+    img_trans.moveToThread(&img_trans_thread);
+    img_trans_thread.start();
+    emit setImgTransPort(12345);
 }
 
 void MainWindow::syncSpinBoxWithSlider()
@@ -148,11 +164,6 @@ void MainWindow::connectTcpMessagerSignals()
     connect(this, &MainWindow::sendMessage, &tcp_client, &Tcp_Messager::sendMessage);
 }
 
-void MainWindow::connectToServer()
-{
-    
-}
-
 void MainWindow::turnRed()
 {
     ui->connect_status_label->setStyleSheet("QLabel{color: rgb(224, 27, 36);}");
@@ -173,6 +184,12 @@ void MainWindow::turnGreen()
                                     "background-color: rgb(46, 194, 126);}");
 }
 
+void MainWindow::resizeEvent(QResizeEvent * event)
+{
+    showImage(cur_mat);
+    event->accept();
+}
+
 /**
  * Private Slots
 */
@@ -186,6 +203,17 @@ void MainWindow::serverDisconnected()
 {
     turnRed();
     emit disconnectTcpServer();
+}
+
+void MainWindow::showImage(cv::Mat image)
+{
+    cur_mat = image;
+    QImage qt_img;
+    matToQImage(image, qt_img);
+    if(qt_img.isNull()) return;
+    QPixmap temp = QPixmap::fromImage(qt_img);
+    temp = temp.scaled(ui->display_label->size(), Qt::KeepAspectRatio);
+    ui->display_label->setPixmap(temp);
 }
 
 void MainWindow::on_connect_btn_clicked()
