@@ -13,6 +13,8 @@ Device::Device(QTcpSocket *socket)
 
 Device::~Device()
 {
+    delete socket;
+    socket = nullptr;
     qDebug() << "Device resolved";
 }
 
@@ -30,7 +32,7 @@ void Device::readSocket()
     if(tmp_data.size() >= CARGO_SIZE)
     {
         memcpy(&cargo, tmp_data.data(), CARGO_SIZE);
-        qDebug() << "cargo height: " << cargo.height << " cargo width: " << cargo.width;
+        //qDebug() << "cargo height: " << cargo.height << " cargo width: " << cargo.width;
         cv::Mat mat(cargo.height, cargo.width, cargo.type, (uchar *)cargo.data);
 
         cv::resize(mat, mat, cv::Size(), 2.0, 2.0);

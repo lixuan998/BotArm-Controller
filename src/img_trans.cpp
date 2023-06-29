@@ -6,6 +6,11 @@ ImgTrans::ImgTrans()
 }
 ImgTrans::~ImgTrans()
 {
+    for(auto dev :device_list)
+    {
+        delete dev;
+        dev = nullptr;
+    }
     qDebug() << "ImgTrans resolved successfully";
 }
 void ImgTrans::transImage(qint16 port)

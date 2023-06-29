@@ -17,6 +17,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    if(img_trans_thread.isRunning())
+    {
+        img_trans_thread.quit();
+        img_trans_thread.wait();
+    }
+    
     delete ui;
 }
 
@@ -167,6 +173,7 @@ void MainWindow::connectTcpMessagerSignals()
 void MainWindow::turnRed()
 {
     ui->connect_status_label->setStyleSheet("QLabel{color: rgb(224, 27, 36);}");
+    ui->connect_status_label->setText("Not Connected");
     ui->connect_btn->setText("Connect");
     ui->connect_btn->setStyleSheet( "QPushButton{"
                                     "background-color: rgb(165, 29, 45);}"
@@ -177,6 +184,7 @@ void MainWindow::turnRed()
 void MainWindow::turnGreen()
 {
     ui->connect_status_label->setStyleSheet("QLabel{color: rgb(38, 162, 105);}");
+    ui->connect_status_label->setText("Connected");
     ui->connect_btn->setText("Disconnect");
     ui->connect_btn->setStyleSheet( "QPushButton{"
                                     "background-color: rgb(38, 162, 105);}"
