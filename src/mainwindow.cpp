@@ -231,3 +231,13 @@ void MainWindow::on_connect_btn_clicked()
     else
         emit disconnectTcpServer();
 }
+
+void MainWindow::on_home_btn_clicked()
+{
+    emit sendMessage("5, 0");
+    emit sendMessage("4, 0");
+    emit sendMessage("3, 0");
+    emit sendMessage("2, 0");
+    emit sendMessage("1, 0");
+    emit sendMessage("0, 0");
+}

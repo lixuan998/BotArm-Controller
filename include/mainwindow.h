@@ -65,6 +65,8 @@ private slots:
 
     void on_connect_btn_clicked();
 
+    void on_home_btn_clicked();
+
 signals:
     void connectTcpServer(QHostAddress, int);
     void disconnectTcpServer();
