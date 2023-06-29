@@ -69,7 +69,7 @@ void Tcp_Messager::startListening(QHostAddress address, int port)
 	if (msg_send_timer == nullptr)
 	{
 		msg_send_timer = new QTimer();
-		msg_send_timer->setInterval(500);
+		msg_send_timer->setInterval(10);
 		connect(msg_send_timer, &QTimer::timeout, this, &Tcp_Messager::timeOut);
 	}
 }
@@ -92,7 +92,7 @@ void Tcp_Messager::connectToHost(QHostAddress address, int port)
 	if (msg_send_timer == nullptr)
 	{
 		msg_send_timer = new QTimer();
-		msg_send_timer->setInterval(500);
+		msg_send_timer->setInterval(10);
 		connect(msg_send_timer, &QTimer::timeout, this, &Tcp_Messager::timeOut);
 	}
 }

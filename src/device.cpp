@@ -35,6 +35,8 @@ void Device::readSocket()
 
         cv::resize(mat, mat, cv::Size(), 2.0, 2.0);
         cv::flip(mat, mat, 1);
+
+        emit sendMat(mat);
         
         QByteArray tmp = tmp_data.right(tmp_data.size() - CARGO_SIZE);
         tmp_data.clear();
